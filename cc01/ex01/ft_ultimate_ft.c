@@ -19,7 +19,7 @@ void	ft_ultimate_ft(int *********nbr)
 
 /*int	main()
 {
-	int	number;         // A variable to hold the integer value
+	int	number;
 	int *ptr1 = &number;
 	int **ptr2 = &ptr1;
 	int ***ptr3 = &ptr2;
@@ -34,5 +34,4 @@ void	ft_ultimate_ft(int *********nbr)
 	ft_ultimate_ft(ptr9);
 	printf("%d", number);
 	return (0);
-}
-*/
+}*/

@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 18:37:04 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/15 14:42:44 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/15 18:35:19 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/15 20:21:09 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-void	ft_ultimate_ft(int *********nbr)
+void	ft_putstr(char *str)
 {
-	*********nbr = 42;
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
 }
 
-/*int	main()
+/*int	main(void)
 {
-	int	number;
-	int *ptr1 = &number;
-	int **ptr2 = &ptr1;
-	int ***ptr3 = &ptr2;
-	int ****ptr4 = &ptr3;
-	int *****ptr5 = &ptr4;
-	int ******ptr6 = &ptr5;
-	int *******ptr7 = &ptr6;
-	int ********ptr8 = &ptr7;
-	int *********ptr9 = &ptr8;
-
-	number=2;
-	ft_ultimate_ft(ptr9);
-	printf("%d", number);
+	char *string = "Test";
+	ft_putstr(string);
 	return (0);
 }*/

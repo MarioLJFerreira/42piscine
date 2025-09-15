@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 18:37:04 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/15 14:42:44 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/15 18:35:19 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/15 22:12:39 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-void	ft_ultimate_ft(int *********nbr)
+int	ft_strlen(char *str)
 {
-	*********nbr = 42;
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-/*int	main()
+/*int	main(void)
 {
-	int	number;
-	int *ptr1 = &number;
-	int **ptr2 = &ptr1;
-	int ***ptr3 = &ptr2;
-	int ****ptr4 = &ptr3;
-	int *****ptr5 = &ptr4;
-	int ******ptr6 = &ptr5;
-	int *******ptr7 = &ptr6;
-	int ********ptr8 = &ptr7;
-	int *********ptr9 = &ptr8;
-
-	number=2;
-	ft_ultimate_ft(ptr9);
-	printf("%d", number);
+	printf("%d", ft_strlen("Hello"));
 	return (0);
 }*/

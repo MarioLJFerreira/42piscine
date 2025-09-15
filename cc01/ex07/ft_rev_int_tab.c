@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/14 18:37:04 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/15 14:42:44 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/15 20:29:08 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/15 22:10:36 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-void	ft_ultimate_ft(int *********nbr)
+void	ft_swap(int *a, int *b)
 {
-	*********nbr = 42;
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-/*int	main()
+void	ft_rev_int_tab(int *tab, int size)
 {
-	int	number;
-	int *ptr1 = &number;
-	int **ptr2 = &ptr1;
-	int ***ptr3 = &ptr2;
-	int ****ptr4 = &ptr3;
-	int *****ptr5 = &ptr4;
-	int ******ptr6 = &ptr5;
-	int *******ptr7 = &ptr6;
-	int ********ptr8 = &ptr7;
-	int *********ptr9 = &ptr8;
+	int	i;
+	int	j;
 
-	number=2;
-	ft_ultimate_ft(ptr9);
-	printf("%d", number);
-	return (0);
+	i = 0;
+	j = size - 1;
+	while (i < j)
+	{
+		ft_swap(&tab[i], &tab[j]);
+		i++;
+		j--;
+	}
+}
+
+/*int	main(void)
+{
+	int arr[] = {1, 2, 3 ,4 ,5};
+	ft_rev_int_tab(arr, 5);
+	printf("Pos1: %d\nPos2: %d\n", arr[0], arr[3]);
 }*/

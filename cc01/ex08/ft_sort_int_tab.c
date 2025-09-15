@@ -6,11 +6,11 @@
 /*   By: mju-ferr <mju-ferr@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 02:04:59 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/15 09:07:18 by mju-ferr         ###   ########.fr       */
+/*   Updated: 2025/09/15 22:13:08 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 void	ft_swap(int *a, int *b)
 {

@@ -6,7 +6,7 @@
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 05:56:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/14 18:11:38 by mju-ferr         ###   ########.fr       */
+/*   Updated: 2025/09/16 03:58:32 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_putnbr(int nb)
 	}
 }
 
-/*int	main(void)
+int	main(void)
 {
 	ft_putnbr(843578);
 	write (1, "\n", 2);
@@ -50,4 +50,4 @@ void	ft_putnbr(int nb)
 	write (1, "\n", 2);
 	ft_putnbr(0);
 	return (0);
-}*/
+}

@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 03:26:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 20:43:37 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/16 19:55:43 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/16 21:17:42 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_uppercase(char *str)
 {
-	char	*original_dest;
+	int	i;
 
-	original_dest = dest;
-	while (*src)
+	i = 0;
+	while (str[i])
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		if (!(str[i] >= 65 && str[i] <= 90))
+			return (0);
+		i++;
 	}
-	*dest = *src;
-	return (original_dest);
+	return (1);
 }
 
 /*int	main(void)
 {
-	char original[] = "Teste";
-	char new[6];
-
-	printf("%s\n", ft_strcpy(new, original));
+	printf("CAKE = %d\nFlour = %d\n", ft_str_is_uppercase("CAKE"));
+	printf("Flour = %d\n", ft_str_is_uppercase("Flour"));
 	return (0);
 }*/

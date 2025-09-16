@@ -1,10 +1,12 @@
+/* ************************************************************************** */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 03:26:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 06:25:42 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/16 20:43:59 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/16 20:49:16 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -12,8 +14,8 @@
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
+	int		i;
 	char	*original_dest;
-	int	i;
 
 	original_dest = dest;
 	i = 0;
@@ -22,24 +24,20 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 		i++;
 	}
-
-	
 	while (i < n)
 	{
 		dest[i] = '\0';
 		i++;
-	}	
-
+	}
 	return (original_dest);
 }
 
 /*int	main(void)
 {
 	char original[] = "Old Original";
-	char new[] = "Unchanged New";
-	unsigned int num = 9;
+	char new[6];
+	unsigned int num = 5;
 	
-	ft_strncpy(new, original, num);
-	printf("%s\n", new);
+	printf("%s\n", ft_strncpy(new, original, num));
 	return (0);
 }*/

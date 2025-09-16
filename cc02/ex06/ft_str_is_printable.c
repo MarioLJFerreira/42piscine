@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 03:26:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 20:43:37 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/16 21:00:14 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/16 21:17:05 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_printable(char *str)
 {
-	char	*original_dest;
-
-	original_dest = dest;
-	while (*src)
+	int	i;
+	while (str[i])
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		if (!(str[i] >= 32 && str[i] <= 126))
+			return (0);
+		i++;
 	}
-	*dest = *src;
-	return (original_dest);
+	return (1);
 }
 
 /*int	main(void)
 {
-	char original[] = "Teste";
-	char new[6];
-
-	printf("%s\n", ft_strcpy(new, original));
+	printf("Test\\n = %d\n", ft_str_is_printable("!';42/Sq±"));
+	printf("42 School! = %d\n", ft_str_is_printable("42 School!"));
 	return (0);
 }*/

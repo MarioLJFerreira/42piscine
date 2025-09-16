@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 03:26:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 20:43:37 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/16 14:26:21 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/16 21:18:23 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_alpha(char *str)
 {
-	char	*original_dest;
+	int	i;
 
-	original_dest = dest;
-	while (*src)
+	i = 0;
+	while (str[i])
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		if (str[i] > 'Z' && str[i] < 'a')
+			return (0);
+		else if (str[i] < 'A' || str[i] > 'z')
+			return (0);
+		i++;
 	}
-	*dest = *src;
-	return (original_dest);
+	return (1);
 }
 
 /*int	main(void)
 {
-	char original[] = "Teste";
-	char new[6];
-
-	printf("%s\n", ft_strcpy(new, original));
+	printf("Lisboa = %d\n", ft_str_is_alpha("Lisboa"));
+	printf("42Lisboa = %d\n", ft_str_is_alpha("42Lisboa"));
 	return (0);
 }*/

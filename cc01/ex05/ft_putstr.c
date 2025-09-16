@@ -6,7 +6,7 @@
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 18:35:19 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/15 20:21:09 by mju-ferr         ###   ########.fr       */
+/*   Updated: 2025/09/16 21:26:23 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	ft_putstr(char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		write(1, str, 1);
-		str++;
+		write(1, &str[i], 1);
+		i++;
 	}
 }
 

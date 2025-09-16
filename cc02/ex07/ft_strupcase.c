@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 03:26:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 20:43:37 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/16 21:19:12 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/16 21:35:16 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strupcase(char *str)
 {
-	char	*original_dest;
+	int	i;
 
-	original_dest = dest;
-	while (*src)
+	i = 0;
+	while (str[i])
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		if (!(str[i] >= 65 && str[i] <= 90))
+			str[i] = str[i] - 32;
+		i++;
 	}
-	*dest = *src;
-	return (original_dest);
+	return (str);
 }
 
 /*int	main(void)
 {
-	char original[] = "Teste";
-	char new[6];
-
-	printf("%s\n", ft_strcpy(new, original));
+	char testStr[] = "Test";
+	printf("Test is %s", ft_strupcase(testStr));
 	return (0);
 }*/

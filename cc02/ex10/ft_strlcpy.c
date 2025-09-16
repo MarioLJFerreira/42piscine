@@ -1,37 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 03:26:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 20:43:37 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/16 22:27:18 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/16 23:05:52 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	*ft_strcpy(char *dest, char *src)
+unsigned int 	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	char	*original_dest;
-
-	original_dest = dest;
-	while (*src)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	*dest = *src;
-	return (original_dest);
+	
 }
-
-/*int	main(void)
-{
-	char original[] = "Teste";
-	char new[6];
-
-	printf("%s\n", ft_strcpy(new, original));
-	return (0);
-}*/

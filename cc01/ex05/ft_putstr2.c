@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 03:26:10 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 20:43:37 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/15 18:35:19 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/16 21:26:06 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_putstr(char *str)
 {
-	char	*original_dest;
-
-	original_dest = dest;
-	while (*src)
+	while (*str)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		write(1, str, 1);
+		str++;
 	}
-	*dest = *src;
-	return (original_dest);
 }
 
 /*int	main(void)
 {
-	char original[] = "Teste";
-	char new[6];
-
-	printf("%s\n", ft_strcpy(new, original));
+	char *string = "Test";
+	ft_putstr(string);
 	return (0);
 }*/

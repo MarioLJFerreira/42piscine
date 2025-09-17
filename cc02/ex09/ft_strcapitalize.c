@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 21:51:44 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/16 22:24:19 by mju-ferr         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:32:03 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
+
+void	case_change(char *str, int i, int *capbool)
+{
+	if (str[i] >= 'a' && str[i] <= 'z')
+	{
+		if (*capbool)
+			str[i] = str[i] - 32;
+	}
+	if (str[i] >= 'A' && str[i] <= 'Z')
+	{
+		if (!(*capbool))
+			str[i] = str[i] + 32;
+	}
+}
 
 char	*ft_strcapitalize(char *str)
 {
@@ -21,21 +35,10 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-		{
-			if(cap_next)
-				str[i] = str[i] - 32;
-		}
-
-		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			if(!(cap_next))
-				str[i] = str[i] + 32;
-		}
-
+		case_change(str, i, &cap_next);
 		if ((str[i] >= '0' && str[i] <= '9')
-			 || (str[i] >= 'A' && str[i] <= 'Z')
-			 || (str[i] >= 'a' && str[i] <= 'z'))
+			|| (str[i] >= 'A' && str[i] <= 'Z')
+			|| (str[i] >= 'a' && str[i] <= 'z'))
 			cap_next = 0;
 		else
 			cap_next = 1;
@@ -44,11 +47,11 @@ char	*ft_strcapitalize(char *str)
 	return (str);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	char strTest[] = "hi, how are you? 42words forty-two; fifty+and+one";
 
 	printf("%s\n", strTest);
 	printf("%s\n", ft_strcapitalize(strTest));
 	return (0);
-}*/
+}

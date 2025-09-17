@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 21:19:12 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/17 07:27:01 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/17 18:41:08 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/17 19:02:00 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strupcase(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
+	int	diff;
 	int	i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 97 && str[i] <= 122)
-			str[i] -= 32;
+	while (s1[i] == s2[i] && s1[i])
 		i++;
-	}
-	return (str);
+	diff = s1[i] - s2[i];
+	return (diff);
 }
 
 /*int	main(void)
 {
-	char testStr[] = "Test";
-	printf("Test is %s", ft_strupcase(testStr));
+	char *test1 = "T";
+	char *test2 = "TesT";
+	printf("%d", ft_strcmp(test1, test2));
 	return (0);
 }*/

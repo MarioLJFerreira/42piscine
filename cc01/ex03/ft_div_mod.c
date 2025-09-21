@@ -6,11 +6,11 @@
 /*   By: mju-ferr <mju-ferr@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 09:19:30 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/15 09:30:45 by mju-ferr         ###   ########.fr       */
+/*   Updated: 2025/09/20 19:38:15 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {
@@ -18,7 +18,7 @@ void	ft_div_mod(int a, int b, int *div, int *mod)
 	*mod = a % b;
 }
 
-/*int	main(void)
+int	main(void)
 {
 	int	a;
 	int	b;
@@ -26,9 +26,9 @@ void	ft_div_mod(int a, int b, int *div, int *mod)
 	int	mod;
 
 	a = 16;
-	b = 5;
+	b = 0;
 	ft_div_mod(a, b, &div, &mod);
 
 	printf("Div of %d and %d is: %d\n", a, b, div);
 	printf("Mod of %d and %d is: %d\n", a, b, mod);
-}*/
+}

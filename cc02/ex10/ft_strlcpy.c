@@ -6,11 +6,11 @@
 /*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 22:27:18 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/17 07:26:58 by mju-ferr         ###   ########.fr       */
+/*   Updated: 2025/09/20 20:20:27 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 
 unsigned int	ft_strlen(char *str)
 {
@@ -39,13 +39,13 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	return (ft_strlen(src));
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char	test_src[] = "This is a test.";
 	char	test_dest[16];
-	int	num = 15;
+	int	num = 3;
 
 	printf("The src '%s'\n", test_src);
 	printf("Returned Len of '%d'\n", ft_strlcpy(test_dest, test_src, num));
 	printf("Dest value is now '%s'\n", test_dest);
-} */
+}

@@ -21,5 +21,6 @@ typedef struct s_dict_entry
 
 char **ft_split(char *str, char *charset);
 t_dict_entry *parse_dict_line(char *line);
+int ft_atoi(char *str);
 
 #endif

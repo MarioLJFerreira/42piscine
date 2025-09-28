@@ -1,6 +1,0 @@
-read the dict file and insert each line into an array of strs (char **strs)
-
-print the number on each line of the dictionary depending on its highest value (e.g. 45 read forty, or if 154 read hundred)
-
-
-

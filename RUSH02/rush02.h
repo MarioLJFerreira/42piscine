@@ -13,4 +13,13 @@ typedef struct s_file
     char *str;
 } t_file;
 
+typedef struct s_dict_entry
+{
+    char *number;
+    char *word;
+} t_dict_entry;
+
+char **ft_split(char *str, char *charset);
+t_dict_entry *parse_dict_line(char *line);
+
 #endif

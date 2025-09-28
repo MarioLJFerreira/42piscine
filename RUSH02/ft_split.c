@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 int is_sep(char c, char *sep)
 {
     int i;
@@ -64,6 +66,7 @@ char **ft_split(char *str, char *charset)
     result = (char **)malloc(sizeof(char *) * (count_words(str, charset[0]) + 1));
     if (!result)
         return (NULL);
+    i = 0;
     j = 0;
     while (str[i])
     {

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   string_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,27 +12,73 @@
 
 #include "rush02.h"
 
-int	ft_atoi(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
-	int	res;
-	int	sign;
 
 	i = 0;
-	res = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i])
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	return (i);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+char	*ft_substr(char *str, int start, int len)
+{
+	char	*result;
+	int		i;
+
+	if (!str || start >= ft_strlen(str))
+		return (NULL);
+	if (start + len > ft_strlen(str))
+		len = ft_strlen(str) - start;
+	result = malloc(len + 1);
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		result[i] = str[start + i];
 		i++;
 	}
+	result[i] = '\0';
+	return (result);
+}
+
+int	string_to_int(char *str)
+{
+	int	result;
+	int	i;
+
+	result = 0;
+	i = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + (str[i] - 48);
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (res * sign);
+	return (result);
+}
+
+int	is_all_zeros(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != '0')
+			return (0);
+		i++;
+	}
+	return (1);
 }

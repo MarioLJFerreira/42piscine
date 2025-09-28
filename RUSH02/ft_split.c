@@ -1,87 +1,107 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/01 00:00:00 by student           #+#    #+#             */
+/*   Updated: 2024/01/01 00:00:00 by student          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int is_sep(char c, char *sep)
+#include "rush02.h"
+
+int	is_sep(char c, char *sep)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (sep[i])
-    {
-        if (c == sep[i])
-            return (1);
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (sep[i])
+	{
+		if (c == sep[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int count_words(char *str, char sep)
+int	count_words(char *str, char sep)
 {
-    int count;
-    int i;
+	int	count;
+	int	i;
 
-    i = 0;
-    count = 0;
-    while (str[i])
-    {
-        while (str[i] && str[i] == sep)
-            i++;
-        if (str[i] && str[i] != sep)
-        {
-            count++;
-            while (str[i] && str[i] != sep)
-                i++;
-        }
-    }
-    return (count);
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		while (str[i] && str[i] == sep)
+			i++;
+		if (str[i] && str[i] != sep)
+		{
+			count++;
+			while (str[i] && str[i] != sep)
+				i++;
+		}
+	}
+	return (count);
 }
 
-char *world_splitter(char *str, char sep)
+char	*world_splitter(char *str, char sep)
 {
-    int len;
-    char *word;
-    int i;
+	int		len;
+	char	*word;
+	int		i;
 
-    len = 0;
-    while (str[len] && str[len] != sep)
-        len++;
-    word = (char *)malloc(sizeof(char) * (len + 1));
-    if (!word)
-        return (NULL);
-    i = 0;
-    while (i < len)
-    {
-        word[i] = str[i];
-        i++;
-    }
-    word[i] = '\0';
-    return (word);
+	len = 0;
+	while (str[len] && str[len] != sep)
+		len++;
+	word = (char *)malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		word[i] = str[i];
+		i++;
+	}
+	word[i] = '\0';
+	return (word);
 }
 
-char **ft_split(char *str, char *charset)
+static void	fill_result(char **result, char *str, char *charset)
 {
-	int i;
-    int j;
-    char **result;
+	int	i;
+	int	j;
 
-    result = (char **)malloc(sizeof(char *) * (count_words(str, charset[0]) + 1));
-    if (!result)
-        return (NULL);
-    i = 0;
-    j = 0;
-    while (str[i])
-    {
-        while (str[i] && is_sep(str[i], charset))
-            i++;
-        if (str[i] && !is_sep(str[i], charset))
-        {
-            result[j] = world_splitter(&str[i], charset[0]);
-            j++;
-            while (str[i] && !is_sep(str[i], charset))
-                i++;
-        }
-        else
-            i++;
-    }
-    result[j] = NULL;
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		while (str[i] && is_sep(str[i], charset))
+			i++;
+		if (str[i] && !is_sep(str[i], charset))
+		{
+			result[j] = world_splitter(&str[i], charset[0]);
+			j++;
+			while (str[i] && !is_sep(str[i], charset))
+				i++;
+		}
+		else
+			i++;
+	}
+	result[j] = NULL;
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	char	**result;
+	int		word_count;
+
+	word_count = count_words(str, charset[0]) + 1;
+	result = (char **)malloc(sizeof(char *) * word_count);
+	if (!result)
+		return (NULL);
+	fill_result(result, str, charset);
 	return (result);
 }

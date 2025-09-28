@@ -1,5 +1,17 @@
 #include "rush02.h"
 
+void ft_putstr(char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        write(1, &str[i], 1);
+        i++;
+    }
+}
+
 void parse_and_display_dict(t_file rush02)
 {
     char *content;
@@ -24,7 +36,11 @@ void parse_and_display_dict(t_file rush02)
         entry = parse_dict_line(lines[i]);
         if (entry)
         {
-            printf("Number: %s -> Word: %s\n", entry->number, entry->word);
+            write(1, "Number: ", 8);
+            ft_putstr(entry->number);
+            write(1, " -> Word: ", 10);
+            ft_putstr(entry->word);
+            write(1, "\n", 1);
             free(entry->number);
             free(entry->word);
             free(entry);

@@ -1,52 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 17:28:49 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/21 08:17:27 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/21 17:19:50 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/21 17:31:40 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_iterative_factorial(int nb)
 {
-	write(1, &c, 1);
-}
+	int	res;
+	int	fac;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
+	res = nb
+	fac = nb - 1;
+	if (nb == 0)
+		return (1);
 	if (nb < 0)
+		return (0);
+	while (fac > 0)
 	{
-		ft_putchar('-');
-		nb = -nb;
+		res *= fac;
+		fac --;
 	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + '0');
+	return (res);
 }
-/*
+
 int	ft_atoi(char *str)
 {
-	int i = 0;
-	int res = 0;
-	int sign = 1;
+	int	i;
+	int	res;
+	int	sign;
 
+	res = 0;
+	sign = 1;
+	i = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign = -1;
+			sign *= -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -60,8 +57,5 @@ int	ft_atoi(char *str)
 int	main(int ac, char **av)
 {
 	if (ac == 2)
-		ft_putnbr(ft_atoi(av[1]));
-	else
-		write(1, "Invalid Arguments", 17);
-	return (0);
-}*/
+		ft_iterative_factorial()
+}

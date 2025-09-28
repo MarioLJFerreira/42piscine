@@ -1,32 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 00:35:35 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/21 08:18:10 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/23 15:06:07 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/23 15:14:08 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdlib.h>
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-			i++;
-	}
-	return (i);
-}
-
-/*int	main(void)
-{
-	char *test = "test";
-	printf("%d", ft_strlen (test));
-}*/
+char	*ft_strjoin(int size, char **strs, char *sep);

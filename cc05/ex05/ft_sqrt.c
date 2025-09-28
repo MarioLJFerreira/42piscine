@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 00:35:35 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/21 08:18:10 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/22 20:28:42 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/22 21:29:25 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 
-int	ft_strlen(char *str)
+int	ft_sqrt(int nb)
 {
 	int	i;
 
 	i = 0;
-	if (str)
-	{
-		while (str[i])
-			i++;
-	}
-	return (i);
+	while (i * i < nb)
+		i++;
+	if(i * i == nb)
+		return (i);
+	return (0);
 }
 
-/*int	main(void)
+int	main(void)
 {
-	char *test = "test";
-	printf("%d", ft_strlen (test));
-}*/
+	int nb;
+
+	printf("Enter your number: ");
+	scanf("%d", &nb);
+	printf("%d\n", ft_sqrt(nb));
+	return (0);
+}

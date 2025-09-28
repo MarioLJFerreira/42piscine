@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 04:13:37 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/18 17:28:28 by mju-ferr         ###   ########.fr       */
+/*   Updated: 2025/09/21 08:16:07 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <unistd.h>
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {

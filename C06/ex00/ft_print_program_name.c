@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mju-ferr <mju-ferr@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: mju-ferr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 00:35:35 by mju-ferr          #+#    #+#             */
-/*   Updated: 2025/09/21 08:18:10 by mju-ferr         ###   ########.fr       */
+/*   Created: 2025/09/21 15:14:11 by mju-ferr          #+#    #+#             */
+/*   Updated: 2025/09/21 15:43:33 by mju-ferr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str)
+	while (str[i])
 	{
-		while (str[i])
-			i++;
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (i);
+	write(1, "\n", 1);
 }
 
-/*int	main(void)
+int	main(int ac, char **av)
 {
-	char *test = "test";
-	printf("%d", ft_strlen (test));
-}*/
+	(void)ac;
+	ft_putstr(av[0]);
+	return (0);
+}

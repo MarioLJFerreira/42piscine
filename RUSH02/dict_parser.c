@@ -1,112 +1,110 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dict_parser.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: student <student@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/01 00:00:00 by student           #+#    #+#             */
+/*   Updated: 2024/01/01 00:00:00 by student          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rush02.h"
 
-t_dict_entry	*free_entropy(t_dict_entry *entry, char **parts, int i)
+void	free_parts_from(char **parts, int start)
 {
-	if (!entry)
-    {
-        i = 0;
-        while (parts[i])
-        {
-            free(parts[i]);
-            i++;
-        }
-        free(parts);
-        return (NULL);
-    }
-	entry->number = parts[0];
-    entry->word = parts[1];
-	if (parts[2])
-    {
-        i = 2;
-        while (parts[i])
-        {
-            free(parts[i]);
-            i++;
-        }
-    }
-    free(parts);
-	return (NULL);
+	int	i;
+
+	if (!parts)
+		return ;
+	i = start;
+	while (parts[i])
+	{
+		free(parts[i]);
+		i++;
+	}
 }
 
-t_dict_entry *parse_dict_line(char *line)
+char	*ft_trim(char *str)
 {
-    char **parts;
-    t_dict_entry *entry;
-    int i;
+	int	start;
+	int	end;
+	int	len;
+
+	if (!str)
+		return (NULL);
+	start = 0;
+	while (str[start] == ' ' || str[start] == '\t')
+		start++;
+	end = ft_strlen(str) - 1;
+	while (end >= start && (str[end] == ' ' || str[end] == '\t'))
+		end--;
+	len = end - start + 1;
+	return (allocate_and_copy(str, start, len));
+}
+
+static char	**split_and_validate(char *line)
+{
+	char	**parts;
+
+	if (!line)
+		return (NULL);
+	parts = ft_split(line, ":");
+	if (!parts || !parts[0] || !parts[1])
+	{
+		free_split_parts(parts);
+		return (NULL);
+	}
+	return (parts);
+}
+
+t_dict_entry	*parse_dict_line(char *line)
+{
+	char			**parts;
+	t_dict_entry	*entry;
+
+	parts = split_and_validate(line);
+	if (!parts)
+		return (NULL);
+	entry = malloc(sizeof(t_dict_entry));
+	if (!entry)
+	{
+		free_parts_from(parts, 0);
+		free(parts);
+		return (NULL);
+	}
+	entry->number = ft_trim(parts[0]);
+	entry->word = ft_trim(parts[1]);
+	free_parts_from(parts, 0);
+	free(parts);
+	return (entry);
+}
+
+char	*find_word_for_number(char **lines, char *number)
+{
+	t_dict_entry	*entry;
+	int				i;
+	char			*result;
 
 	i = 0;
-    if (!line)
-        return (NULL);
-    parts = ft_split(line, ": ");
-    if (!parts || !parts[0] || !parts[1])
-    {
-        if (parts)
-        {
-            i = 0;
-            while (parts[i])
-            {
-                free(parts[i]);
-                i++;
-            }
-            free(parts);
-        }
-        return (NULL);
-    }
-    entry = malloc(sizeof(t_dict_entry));
-	free_entropy(entry, parts, i);
-    return (entry);
-}/*
-t_dict_entry *parse_dict_line(char *line)
-{
-    char **parts;
-    t_dict_entry *entry;
-    int i;
-
-    if (!line)
-        return (NULL);
-    
-    parts = ft_split(line, ": ");
-    if (!parts || !parts[0] || !parts[1])
-    {
-        if (parts)
-        {
-            i = 0;
-            while (parts[i])
-            {
-                free(parts[i]);
-                i++;
-            }
-            free(parts);
-        }
-        return (NULL);
-    }
-    entry = malloc(sizeof(t_dict_entry));
-    //if (!entry)
-    //{
-    //    i = 0;
-    //    while (parts[i])
-    //    {
-    //        free(parts[i]);
-    //        i++;
-    //    }
-    //    free(parts);
-    //    return (NULL);
-    //}
-    
-    //entry->number = parts[0];
-    //entry->word = parts[1];
-    
-    //if (parts[2])
-    //{
-    //    i = 2;
-    //    while (parts[i])
-    //    {
-    //        free(parts[i]);
-    //        i++;
-    //    }
-    //}
-    //free(parts);
-    
-    return (entry);
+	while (lines[i])
+	{
+		entry = parse_dict_line(lines[i]);
+		if (entry && ft_strcmp(entry->number, number) == 0)
+		{
+			result = entry->word;
+			free(entry->number);
+			free(entry);
+			return (result);
+		}
+		if (entry)
+		{
+			free(entry->number);
+			free(entry->word);
+			free(entry);
+		}
+		i++;
+	}
+	return (NULL);
 }
-*/
